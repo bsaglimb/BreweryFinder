@@ -18,7 +18,7 @@ function goToResults(city) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const searchButton = document.querySelector('.btn-large');
+    const searchButton = document.getElementById('searchButton');
 
     searchButton.addEventListener('click', function(event) {
         event.preventDefault();
