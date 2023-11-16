@@ -28,7 +28,7 @@ async function getLocalBreweries(latitude, longitude) {
 }
 
 async function getBreweryByCity(city) {
-    const urlCity = `https://api.openbrewerydb.org/breweries?by_city=${encodeURIComponent(city)}&per_page=10`;
+    const urlCity = `https://api.openbrewerydb.org/breweries?by_type!=planning?by_city=${encodeURIComponent(city)}&per_page=10`;
 
     return fetch(urlCity)
         .then(response => response.json());
