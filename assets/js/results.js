@@ -44,7 +44,7 @@ async function displayBreweryResults(city) {
 
         breweryData.forEach(brewery => {
             const liElement = document.createElement('li');
-            liElement.classList.add('collection-item', 'avatar');
+            liElement.classList.add('collection-item', 'avatar','hoverable');
 
             if (brewery.website_url) {
                 liElement.innerHTML = `
