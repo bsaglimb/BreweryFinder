@@ -28,7 +28,7 @@ async function getLocalBreweries(latitude, longitude) {
 }
 
 async function getBreweryByCity(city) {
-    const urlCity = `https://api.openbrewerydb.org/breweries?by_type!=planning?by_city=${encodeURIComponent(city)}&per_page=10`;
+    const urlCity = `https://api.openbrewerydb.org/breweries?by_city=${encodeURIComponent(city)}&per_page=25`;
 
     return fetch(urlCity)
         .then(response => response.json());
@@ -43,11 +43,14 @@ async function displayBreweryResults(city) {
         const ulElement = document.getElementById('breweryResults');
 
         breweryData.forEach(brewery => {
+            if (brewery.address_1) {
+                const liElement = document.createElement('li');
+                liElement.classList.add('collection-item', 'avatar');
             const liElement = document.createElement('li');
             liElement.classList.add('collection-item', 'avatar','hoverable');
 
-            if (brewery.website_url) {
-                liElement.innerHTML = `
+                if (brewery.website_url) {
+                    liElement.innerHTML = `
                 <i class="material-icons circle">room</i>
                 <span class="title">${brewery.name}</span>
                 <p>Address: ${brewery.address_1} <br>
@@ -55,8 +58,8 @@ async function displayBreweryResults(city) {
                 </p>
                 <a href="#!" class="secondary-content"><i class="material-icons favorites" data-state="unselected">favorite_border</i></a>
             `;
-            } else {
-                liElement.innerHTML = `
+                } else {
+                    liElement.innerHTML = `
                 <i class="material-icons circle">room</i>
                 <span class="title">${brewery.name}</span>
                 <p>Address: ${brewery.address_1} <br>
@@ -64,9 +67,12 @@ async function displayBreweryResults(city) {
                 </p>
                 <a href="#!" class="secondary-content"><i class="material-icons favorites" data-state="unselected">favorite_border</i></a>
             `;
-            }
+                }
+                ulElement.appendChild(liElement);
 
-            ulElement.appendChild(liElement);
+            } else {
+                return;
+            }
         });
 
     } catch (error) {
