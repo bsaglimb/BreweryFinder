@@ -13,6 +13,9 @@ $(document).ready(function() {
     $('.tooltipped').tooltip();
 });
 
+var titleID = document.getElementById("breweryTitle")
+var contentID = document.getElementById("breweryContent")
+
 async function getWeatherData(latitude, longitude) {
     const urlCoordinates = `http://www.7timer.info/bin/api.pl?lon=${longitude}&lat=${latitude}&product=astro&output=json`;
 
@@ -67,6 +70,17 @@ async function displayBreweryResults(city) {
             `;
                 }
                 ulElement.appendChild(liElement);
+
+                liElement.addEventListener("click",function(){
+                    titleID.innerText = brewery.name;
+                    if(brewery.website_url){
+                        contentID.innerText = "Address: " + brewery.address_1 + "\n" + "Website: " + brewery.website_url;
+                    }
+                    else{
+                        contentID.innerText = "Address: " + brewery.address_1 + "\n" + "Website: No website URL for this Brewery!";
+                    }
+
+                })
 
             } else {
                 return;
