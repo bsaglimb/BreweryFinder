@@ -46,6 +46,8 @@ async function displayBreweryResults(city) {
             if (brewery.address_1) {
                 const liElement = document.createElement('li');
                 liElement.classList.add('collection-item', 'avatar');
+            const liElement = document.createElement('li');
+            liElement.classList.add('collection-item', 'avatar','hoverable');
 
                 if (brewery.website_url) {
                     liElement.innerHTML = `
