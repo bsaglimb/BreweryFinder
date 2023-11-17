@@ -1,0 +1,8 @@
+.collection{
+    cursor: pointer;
+}
+
+li:hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
