@@ -13,9 +13,6 @@ $(document).ready(function() {
     $('.tooltipped').tooltip();
 });
 
-var titleID = document.getElementById("breweryTitle")
-var contentID = document.getElementById("breweryContent")
-
 async function getWeatherData(latitude, longitude) {
     const urlCoordinates = `http://www.7timer.info/bin/api.pl?lon=${longitude}&lat=${latitude}&product=astro&output=json`;
 
@@ -44,7 +41,7 @@ async function displayBreweryResults(city) {
         resultsContainer.innerHTML = '';
 
         const ulElement = document.getElementById('breweryResults');
-        var i = 0
+
         breweryData.forEach(brewery => {
             if (brewery.address_1) {
                 const liElement = document.createElement('li');
@@ -71,22 +68,20 @@ async function displayBreweryResults(city) {
                 }
                 ulElement.appendChild(liElement);
 
-                liElement.addEventListener("click",function(){
-                    titleID.innerText = brewery.name;
-                    if(brewery.website_url){
-                        contentID.innerText = "Address: " + brewery.address_1 + "\n" + "Website: " + brewery.website_url;
-                    }
-                    else{
-                        contentID.innerText = "Address: " + brewery.address_1 + "\n" + "Website: No website URL for this Brewery!";
-                    }
-
-                })
-                i++
             } else {
                 return;
             }
         });
-
+        $("i.favorites").on("click", function(event) {
+            var element = event.target;
+            if (element.dataset.state === "unselected") {
+                element.dataset.state = "selected";
+                element.textContent = "favorite";
+            } else {
+                element.dataset.state = "unselected";
+                element.textContent = "favorite_border";
+            };
+        });
     } catch (error) {
         console.error('Error fetching brewery data:', error);
     }
@@ -96,16 +91,6 @@ console.log('Hello World!');
 const urlParams = new URLSearchParams(window.location.search);
 const city = urlParams.get('city');
 
-$("i.favorites").on("click", function(event) {
-    var element = event.target;
-    if (element.dataset.state === "unselected") {
-        element.dataset.state = "selected";
-        element.textContent = "favorite";
-    } else {
-        element.dataset.state = "unselected";
-        element.textContent = "favorite_border";
-    };
-});
 
 displayBreweryResults(city);
 // hi
