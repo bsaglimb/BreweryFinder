@@ -72,7 +72,16 @@ async function displayBreweryResults(city) {
                 return;
             }
         });
-
+        $("i.favorites").on("click", function(event) {
+            var element = event.target;
+            if (element.dataset.state === "unselected") {
+                element.dataset.state = "selected";
+                element.textContent = "favorite";
+            } else {
+                element.dataset.state = "unselected";
+                element.textContent = "favorite_border";
+            };
+        });
     } catch (error) {
         console.error('Error fetching brewery data:', error);
     }
@@ -82,16 +91,6 @@ console.log('Hello World!');
 const urlParams = new URLSearchParams(window.location.search);
 const city = urlParams.get('city');
 
-$("i.favorites").on("click", function(event) {
-    var element = event.target;
-    if (element.dataset.state === "unselected") {
-        element.dataset.state = "selected";
-        element.textContent = "favorite";
-    } else {
-        element.dataset.state = "unselected";
-        element.textContent = "favorite_border";
-    };
-});
 
 displayBreweryResults(city);
 // hi
