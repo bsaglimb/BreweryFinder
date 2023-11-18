@@ -112,11 +112,8 @@ async function getApiLocation(city){
 async function displayBreweryResults(city) {
     try {
         const breweryData = await getBreweryByCity(city);
-        const resultsContainer = document.getElementById('breweryResults');
-        resultsContainer.innerHTML = '';
-
         const ulElement = document.getElementById('breweryResults');
-
+        ulElement.innerHTML = '';
         breweryData.forEach(brewery => {
             if (brewery.address_1) {
                 const liElement = document.createElement('li');
@@ -129,8 +126,7 @@ async function displayBreweryResults(city) {
                 <p>Address: ${brewery.address_1} <br>
                     Website: <a href="${brewery.website_url}" target="_blank">${brewery.website_url}</a>
                 </p>
-                <a href="#!" class="secondary-content"><i class="material-icons favorites" data-state="unselected">favorite_border</i></a>
-            `;
+                <a href="#!" class="secondary-content"><i class="material-icons favorites" data-state="unselected">favorite_border</i></a>`;
                 } else {
                     liElement.innerHTML = `
                 <i class="material-icons circle">room</i>
@@ -138,20 +134,18 @@ async function displayBreweryResults(city) {
                 <p>Address: ${brewery.address_1} <br>
                     Website: Sorry this brewery doesnt have a website.
                 </p>
-                <a href="#!" class="secondary-content"><i class="material-icons favorites" data-state="unselected">favorite_border</i></a>
-            `;
+                <a href="#!" class="secondary-content"><i class="material-icons favorites" data-state="unselected">favorite_border</i></a>`;
                 }
                 ulElement.appendChild(liElement);
-
-                liElement.addEventListener("click",function(){
+                liElement.addEventListener("click", function() {
                     titleID.innerText = brewery.name;
-                    if(brewery.website_url){
-                        contentID.innerText = "Address: " + brewery.address_1 + "\n" + "Website: " + brewery.website_url;
+                    if (brewery.website_url) {
+                        contentID.innerHTML = "Address: " + brewery.address_1 + "<br>" +
+                            "Website: <a href='" + brewery.website_url + "' target='_blank'>" + brewery.website_url + "</a>";
+                    } else {
+                        contentID.innerHTML = "Address: " + brewery.address_1 + "<br>" +
+                            "Website: Sorry, this brewery doesn't have a website.";
                     }
-                    else{
-                        contentID.innerText = "Address: " + brewery.address_1 + "\n" + "Website: No website URL for this Brewery!";
-                    }
-
                     if(brewery.latitude,brewery.longitude){ 
                         getApiWeather(brewery.latitude,brewery.longitude);
                         console.log("this has lonlat")
@@ -160,8 +154,7 @@ async function displayBreweryResults(city) {
                         getApiLocation(city);
                         console.log("this does not have lonlat")
                     }     
-                })
-
+                });
             } else {
                 return;
             }
@@ -180,11 +173,8 @@ async function displayBreweryResults(city) {
         console.error('Error fetching brewery data:', error);
     }
 }
-console.log('Hello World!');
 
 const urlParams = new URLSearchParams(window.location.search);
 const city = urlParams.get('city');
 
-
 displayBreweryResults(city);
-// hi
