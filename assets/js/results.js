@@ -68,29 +68,29 @@ function getApiWeather(lat,long){
     })
     .then(function (data){
         console.log(data)
-        dayTemp1 = (data.list[7].main.temp - 273.15) * 9/5 + 32;
-        dayTemp2 = (data.list[15].main.temp - 273.15) * 9/5 + 32;
-        dayTemp3 = (data.list[23].main.temp - 273.15) * 9/5 + 32;
-        dayTemp4 = (data.list[31].main.temp - 273.15) * 9/5 + 32;
-        dayTemp5 = (data.list[39].main.temp - 273.15) * 9/5 + 32;
+        dayTemp1 = (data.list[5].main.temp - 273.15) * 9/5 + 32;
+        dayTemp2 = (data.list[13].main.temp - 273.15) * 9/5 + 32;
+        dayTemp3 = (data.list[21].main.temp - 273.15) * 9/5 + 32;
+        dayTemp4 = (data.list[29].main.temp - 273.15) * 9/5 + 32;
+        dayTemp5 = (data.list[37].main.temp - 273.15) * 9/5 + 32;
 
-        dayWind1 = data.list[7].wind.speed + " MPH";
-        dayWind2 = data.list[15].wind.speed + " MPH";
-        dayWind3 = data.list[23].wind.speed + " MPH";
-        dayWind4 = data.list[31].wind.speed + " MPH";
-        dayWind5 = data.list[39].wind.speed + " MPH";
+        dayWind1 = data.list[5].wind.speed + " MPH";
+        dayWind2 = data.list[13].wind.speed + " MPH";
+        dayWind3 = data.list[21].wind.speed + " MPH";
+        dayWind4 = data.list[29].wind.speed + " MPH";
+        dayWind5 = data.list[37].wind.speed + " MPH";
 
-        dayHumid1 = data.list[7].main.humidity + "%";
-        dayHumid2 = data.list[15].main.humidity + "%";
-        dayHumid3 = data.list[23].main.humidity + "%";
-        dayHumid4 = data.list[31].main.humidity + "%";
-        dayHumid5 = data.list[39].main.humidity + "%";
+        dayHumid1 = data.list[5].main.humidity + "%";
+        dayHumid2 = data.list[13].main.humidity + "%";
+        dayHumid3 = data.list[21].main.humidity + "%";
+        dayHumid4 = data.list[29].main.humidity + "%";
+        dayHumid5 = data.list[37].main.humidity + "%";
 
-        time1 = data.list[7].dt_txt;
-        time2 = data.list[15].dt_txt;
-        time3 = data.list[23].dt_txt;
-        time4 = data.list[31].dt_txt;
-        time5 = data.list[39].dt_txt;
+        time1 = data.list[5].dt_txt;
+        time2 = data.list[13].dt_txt;
+        time3 = data.list[21].dt_txt;
+        time4 = data.list[29].dt_txt;
+        time5 = data.list[37].dt_txt;
 
         time = data.list[3].dt_txt;
         setWebpage(data.city.name);
