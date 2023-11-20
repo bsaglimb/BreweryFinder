@@ -27,3 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
         goToResults(cityInputValue);
     })
 })
+
+//Go to Favorites
+
+$("i.favorite-page").on("click", function(){
+    window.open("favorites.html");
+});

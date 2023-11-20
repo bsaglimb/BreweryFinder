@@ -178,3 +178,11 @@ const urlParams = new URLSearchParams(window.location.search);
 const city = urlParams.get('city');
 
 displayBreweryResults(city);
+
+$("li.search").on("click", function(){
+    window.open("index.html");
+});
+
+$("li.favorite-page").on("click", function(){
+    window.open("favorites.html");
+});
