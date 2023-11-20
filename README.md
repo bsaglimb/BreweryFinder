@@ -1,4 +1,14 @@
-# groupProject
+# Brewery Finder - group project
+
+
+## User story 
+
+* AS A consumer that wants a fun night out 
+
+* I WANT to check my current location or another location of my choosing
+
+* SO THAT i can pick a brewery in the area and see weather information
+
 
 ## Project Requirements
 
@@ -37,3 +47,14 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 * Demo: Show your stuff!
 
 * Directions for Future Development
+
+## Deployed links
+
+* https://github.com/bsaglimb/groupProject
+
+* https://bsaglimb.github.io/groupProject/
+
+## Photo of deployed site
+
+![Demopicture](./assets/breweryFinder.png)
+
