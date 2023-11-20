@@ -53,3 +53,8 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 * https://github.com/bsaglimb/groupProject
 
 * https://bsaglimb.github.io/groupProject/
+
+## Photo of deployed site
+
+![Demopicture](./assets/breweryFinder.png)
+
