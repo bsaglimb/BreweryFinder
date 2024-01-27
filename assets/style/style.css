@@ -6,3 +6,33 @@ li:hover {
     font-weight: bold;
     cursor: pointer;
   }
+
+html{
+    background-color: #dff9c2;
+    cursor: default;
+  }
+
+body{
+        background-color: #dff9c2;
+        cursor: default;
+    }
+
+.card.col.s7 {
+    text-align: center;
+}
+
+
+.container{
+    padding-top: 100px;
+}
+
+.breweryTitle{
+    font-family: serif;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.humidity{
+    padding-bottom: 25px;
+}
