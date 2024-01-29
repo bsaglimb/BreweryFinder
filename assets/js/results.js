@@ -97,7 +97,7 @@ function getApiWeather(lat,long){
     })
 }
 async function getApiLocation(city){
-    var requestURL = 'http://api.openweathermap.org/geo/1.0/direct?q='+city+'&limit=1&appid=886f3f4f8785854297f7a562176e6a41'
+    var requestURL = 'https://api.openweathermap.org/geo/1.0/direct?q='+city+'&limit=1&appid=886f3f4f8785854297f7a562176e6a41'
     fetch(requestURL)
     .then(function(reponse){
         return reponse.json();
