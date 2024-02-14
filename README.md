@@ -50,9 +50,9 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 
 ## Deployed links
 
-* https://github.com/bsaglimb/BreweryFinder
+* https://github.com/briBeni/BreweryFinder
 
-* https://bsaglimb.github.io/BreweryFinder/
+* https://bribeni.github.io/BreweryFinder/
 
 ## Photo of deployed site
 
